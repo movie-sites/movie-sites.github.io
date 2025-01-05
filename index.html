@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Movie Sites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #0e0e23;
+            --background-light: #13162f;
+            --text-primary: #f1f1f1;
+            --text-secondary: #bfc4c9;
+            --accent: #378fd6;
+            --accent-hover: #5aaef9;
+            --border: 1px solid #27306b;
+            --card-background: #161641;
+            --radius: 8px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text-secondary);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .category {
+            background: var(--card-background);
+            border: var(--border);
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .category:hover {
+            background: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .category a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sites {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sites li {
+            background: var(--card-background);
+            border: var(--border);
+            padding: 10px 16px;
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+        }
+
+        .sites a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sites a:hover {
+            color: var(--accent-hover);
+        }
+
+        .telegram {
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .telegram a {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+
+        .telegram a:hover {
+            background: var(--accent-hover);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Useful Free Movie Sites</h1>
+
+        <div class="categories">
+            <div class="category"><a href="#popular">Popular</a></div>
+            <div class="category"><a href="#recently-added">Recently Added</a></div>
+            <div class="category"><a href="#high-quality">High Quality</a></div>
+            <div class="category"><a href="#tv-shows">TV Shows</a></div>
+            <div class="category"><a href="#documentaries">Documentaries</a></div>
+        </div>
+
+        <ul class="sites" id="popular">
+            <li><a href="https://example.com">Example Movie Site 1</a></li>
+            <li><a href="https://example2.com">Example Movie Site 2</a></li>
+        </ul>
+
+        <ul class="sites" id="recently-added">
+            <li><a href="https://example3.com">Example Movie Site 3</a></li>
+            <li><a href="https://example4.com">Example Movie Site 4</a></li>
+        </ul>
+
+        <ul class="sites" id="high-quality">
+            <li><a href="https://example5.com">Example Movie Site 5</a></li>
+            <li><a href="https://example6.com">Example Movie Site 6</a></li>
+        </ul>
+
+        <div class="telegram">
+            <a href="https://t.me/YourChannel">Join Our Telegram for More Help</a>
+        </div>
+    </div>
+</body>
+</html>
