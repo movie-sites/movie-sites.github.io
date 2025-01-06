@@ -14,9 +14,12 @@
             --accent: #314b99;
             --accent-hover: #378fd6;
             --border: 1px solid #27306b;
+            --border-highlight: 1px solid #5b5fee;
             --card-background: #161641;
             --card-light: #212c59;
             --card-hover: #2f347b;
+            --card-highlight: #353a82;
+            --card-highlight-hover: #434ab1;
             --radius: 8px;
         }
 
@@ -109,6 +112,11 @@
             transition: background 0.3s, color 0.3s;
         }
 
+        .site.highlight a {
+            background-color: var(--card-highlight);
+            border: var(--border-highlight);
+        }
+
         .site:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -117,6 +125,9 @@
         .site a:hover {
             background: var(--card-hover);
             color: var(--text-primary);
+        }
+        .site.highlight a:hover {
+            background: var(--card-highlight-hover);
         }
 
         .site a img {
@@ -208,28 +219,88 @@
         const categoriesMap = {
             "All": [],
             "Movies & Series": [
-                { name: "Example Movie Site 1", url: "https://example.com" },
-                { name: "Example Movie Site 2", url: "https://example2.com" },
-                { name: "Example Movie Site 3", url: "https://example3.com" }
+                { name: "Nkiri.cc", url: "https://nkiri.cc/", highlight: true },
+                { name: "NetMovies.to", url: "https://web.netmovies.to/home/", highlight: true },
+                { name: "FMoviesto.cc", url: "https://fmoviesto.cc/home", highlight: true },
+                { name: "DopeBox.to", url: "https://dopebox.to/home", highlight: true },
+                { name: "ViewVault.org", url: "https://viewvault.org/", highlight: true },
+                { name: "RGShows.me", url: "https://www.rgshows.me/?p=1", highlight: true },
+                { name: "FlixHQ.to", url: "https://flixhq.to/home", highlight: true },
+                { name: "StreamFlix.one", url: "https://watch.streamflix.one/", highlight: true },
+                { name: "SolarMovie.one", url: "https://wwv.solarmovie.one/", highlight: true },
+                { name: "Movietly.com", url: "https://movietly.com/home/", highlight: true },
+                { name: "HuraWatchz.to", url: "https://hurawatchz.to/", highlight: true },
+                { name: "WatchUG.com", url: "https://watchug.com/home", highlight: true },
+                { name: "FMovies.do", url: "https://ww1.fmovies.do/home", highlight: true },
+                { name: "Way2Movies.vercel.app", url: "https://way2movies.vercel.app/", highlight: true },
+                { name: "Freek.to", url: "https://freek.to/", highlight: true },
+                { name: "VidBinge.com", url: "https://www.vidbinge.com/" },
+                { name: "CatFlix.su", url: "https://catflix.su/home" },
+                { name: "CinemaDeck.com", url: "https://cinemadeck.com/" },
+                { name: "PopcornMovies.to", url: "https://www.popcornmovies.to/home" },
+                { name: "NePu.to", url: "https://nepu.to/" },
+                { name: "BroFlix.cc", url: "https://broflix.cc/" },
+                { name: "Cineby.app", url: "https://www.cineby.app/" },
+                { name: "Rivestream.live", url: "https://rivestream.live/" },
+                { name: "FMovies-HD.to", url: "https://fmovies-hd.to/home/" },
+                { name: "FlixWave.watch", url: "https://flixwave.watch/home/" },
+                { name: "BFlix.sh", url: "https://bflix.sh/home/" },
+                { name: "AutoEmbed.cc", url: "https://watch.autoembed.cc/" },
+                { name: "HydraHD.me", url: "https://hydrahd.me/" },
+                { name: "CineBook.xyz", url: "https://www.cinebook.xyz/" },
+                { name: "NovaFork.com", url: "https://novafork.com/" }
             ],
             "Anime": [
-                { name: "Example Movie Site 4", url: "https://example4.com" }
+                { name: "AniWatchTV.to", url: "https://aniwatchtv.to", highlight: true },
+                { name: "HiAnime.to", url: "https://hianime.to/", highlight: true },
+                { name: "AniWave.se", url: "https://aniwave.se/", highlight: true },
+                { name: "9animeTV.to", url: "https://9animetv.to/", highlight: true },
+                { name: "AniCrush.to", url: "https://anicrush.to/", highlight: true },
+                { name: "WatchAnime.io", url: "https://watchanime.io/", highlight: true },
+                { name: "Freek.to", url: "https://freek.to/explore/anime", highlight: true },
+                { name: "AnimeSuge.skin", url: "https://animesuge.skin/", highlight: true },
+                { name: "KissAnime.com.ru", url: "https://kissanime.com.ru/" },
+                { name: "Rivekun.RiveStream.live", url: "https://rivekun.rivestream.live/" },
+                { name: "Rivekun.Pages.dev", url: "https://rivekun.pages.dev/" },
+                { name: "Anime.Cross.moe", url: "https://anime.cross.moe/home" },
+                { name: "AnimeHub", url: "https://animehub.ac/animehub.to" },
+                { name: "AnimixPlay", url: "https://animixplay.name/" },
+                { name: "AnimeOwl.live", url: "https://animeowl.live/" },
+                { name: "123Animes.ru", url: "https://w1.123animes.ru/home" },
+                { name: "AnimixPlay.tube", url: "https://animixplay.tube/home" },
+                { name: "4Anime.gg", url: "https://4anime.gg/" },
+                { name: "Miruro.tv", url: "https://www.miruro.tv/" },
+                { name: "Miruro.online", url: "https://www.miruro.online/" },
+                { name: "Kaguya.app", url: "https://kaguya.app/en/anime" },
+                { name: "AnimeParadise.moe", url: "https://www.animeparadise.moe/" },
+                { name: "BestDubbedAnime.com", url: "https://bestdubbedanime.com/" },
+                { name: "AniMeow.me", url: "https://animeow.me/" },
+                { name: "YukiWatch.su", url: "https://yukiwatch.su/home" },
+                { name: "Kaido.to", url: "https://kaido.to/home" },
+                { name: "KickAssAnime.mx", url: "https://www2.kickassanime.mx/anime" },
+                { name: "GoGoAnime3.cc", url: "https://gogoanime3.cc/" }
             ],
             "Live TV": [
-                { name: "Example Movie Site 5", url: "https://example5.com" }
+                { name: "TheTVApp.to", url: "https://thetvapp.to/", highlight: true },
+                { name: "TV247.us", url: "https://tv247.us/all-channels/", highlight: true },
+                { name: "USATVGO.live", url: "https://usatvgo.live/", highlight: true },
+                // { name: "", url: "", highlight: true },
+                // { name: "", url: "", highlight: true },
             ],
             "Live Sports": [
-                { name: "Example Movie Site 6", url: "https://example6.com" }
+                { name: "StreamEast.app", url: "https://the.streameast.app/", highlight: true },
+                { name: "SportPlus.live", url: "https://en12.sportplus.live/" },
             ]
         };
+    
         // get all sites and remove duplicates
         const allSites = [...new Map(Object.values(categoriesMap).flat().map(site => [site.url, site])).values()];
         categoriesMap["All"] = allSites;
-    
+        
         // populate categories dynamically
         const categoriesContainer = document.getElementById("categories");
         const sitesContainer = document.getElementById("sites");
-    
+
         Object.keys(categoriesMap).forEach(category => {
             const categoryElement = document.createElement("div");
             categoryElement.className = "category";
@@ -238,19 +309,24 @@
                 document.querySelectorAll(".category").forEach(el => el.classList.remove("active"));
                 categoryElement.classList.add("active");
                 filterSites(category);
+                window.location.hash = encodeURIComponent(category);
             });
             categoriesContainer.appendChild(categoryElement);
         });
-    
+
         function filterSites(category) {
             sitesContainer.innerHTML = "";
             sitesContainer.classList.remove("visible");
             const filteredSites = categoriesMap[category];
-    
+
             setTimeout(() => {
                 filteredSites.forEach(site => {
                     const siteElement = document.createElement("li");
                     siteElement.className = "site";
+                    if (site.highlight) {
+                        siteElement.classList.add("highlight");
+                    }
+
                     siteElement.innerHTML = `
                         <a href="${site.url}" target="_blank">
                             <img src="https://icon.horse/icon/${new URL(site.url).hostname}" alt="${site.name} favicon">
@@ -262,10 +338,26 @@
                 sitesContainer.classList.add("visible");
             }, 200);
         }
-    
-        // default to All
-        document.querySelector(".category").classList.add("active");
-        filterSites("All");
-    </script>
+
+        // check for hash and filter sites accordingly
+        const categoryFromHash = decodeURIComponent(window.location.hash.substring(1));
+        if (categoriesMap[categoryFromHash]) {
+            document.querySelectorAll(".category").forEach(el => el.classList.remove("active"));
+            const selectedCategoryElement = [...categoriesContainer.children].find(el => el.textContent === categoryFromHash);
+            if (selectedCategoryElement) {
+                selectedCategoryElement.classList.add("active");
+                filterSites(categoryFromHash);
+            }
+        } else {
+            document.querySelector(".category").classList.add("active");
+            filterSites("All");
+        }
+
+        // default to All if no hash
+        if (!window.location.hash) {
+            document.querySelector(".category").classList.add("active");
+            filterSites("All");
+        }
+    </script>    
 </body>
 </html>
