@@ -89,7 +89,7 @@
         .sites.visible {
             opacity: 1;
             transform: translateY(0);
-            max-height: 2000px;
+            max-height: 100000px;
         }
 
         .site {
@@ -349,12 +349,7 @@
                 filterSites(categoryFromHash);
             }
         } else {
-            document.querySelector(".category").classList.add("active");
-            filterSites("All");
-        }
-
-        // default to All if no hash
-        if (!window.location.hash) {
+            // default to "All" if no hash is present
             document.querySelector(".category").classList.add("active");
             filterSites("All");
         }
