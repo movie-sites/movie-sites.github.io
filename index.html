@@ -42,6 +42,18 @@
         h1 {
             color: var(--text-primary);
             text-align: center;
+            margin-bottom: 0;
+        }
+
+        .container > h3 {
+            text-align: center;
+            margin-top: 8px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        #updated {
+            color: #7bc4ff;
         }
 
         .categories {
@@ -203,6 +215,7 @@
 <body>
     <div class="container">
         <h1>Useful Free Movie Sites</h1>
+        <h3>Last Updated: <span id="updated">Loading...</span></h3>
         <div class="categories" id="categories"></div>
         <ul class="sites" id="sites"></ul>
         <div class="telegram" id="telegram">
@@ -225,8 +238,6 @@
             "Movies & Series": [
                 { name: "Nkiri.cc", url: "https://nkiri.cc/", highlight: true },
                 { name: "NetMovies.to", url: "https://web.netmovies.to/home/", highlight: true },
-                { name: "FMoviesto.cc", url: "https://fmoviesto.cc/home", highlight: true },
-                { name: "DopeBox.to", url: "https://dopebox.to/home", highlight: true },
                 { name: "ViewVault.org", url: "https://viewvault.org/", highlight: true },
                 { name: "RGShows.me", url: "https://www.rgshows.me/?p=1", highlight: true },
                 { name: "FlixHQ.to", url: "https://flixhq.to/home", highlight: true },
@@ -235,9 +246,12 @@
                 { name: "Movietly.com", url: "https://movietly.com/home/", highlight: true },
                 { name: "HuraWatchz.to", url: "https://hurawatchz.to/", highlight: true },
                 { name: "WatchUG.com", url: "https://watchug.com/home", highlight: true },
-                { name: "FMovies.do", url: "https://ww1.fmovies.do/home", highlight: true },
                 { name: "Way2Movies.vercel.app", url: "https://way2movies.vercel.app/", highlight: true },
                 { name: "Freek.to", url: "https://freek.to/", highlight: true },
+                { name: "FMoviesto.cc", url: "https://fmoviesto.cc/home", highlight: true },
+                { name: "FMovies.do", url: "https://ww1.fmovies.do/home", highlight: true },
+                { name: "FMovies.co", url: "https://ww4.fmovies.co/home", highlight: true },
+                { name: "DopeBox.to", url: "https://dopebox.to/home" },
                 { name: "VidBinge.com", url: "https://www.vidbinge.com/" },
                 { name: "CatFlix.su", url: "https://catflix.su/home" },
                 { name: "CinemaDeck.com", url: "https://cinemadeck.com/" },
@@ -370,10 +384,40 @@
                 filterSites(categoryFromHash);
             }
         } else {
-            // default to "All" if no hash is present
+            // default to "All" if no hash
             document.querySelector(".category").classList.add("active");
             filterSites("Movies & Series");
         }
+
+        
+        function getRelativeTime(date) {
+            const now = new Date();
+            const diffMs = now - date;
+            const seconds = Math.floor(diffMs / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            const pluralize = (value, unit) => `${value} ${unit}${value === 1 ? '' : 's'} ago`;
+            if (seconds < 60) return pluralize(seconds, "Second");
+            if (minutes < 60) return pluralize(minutes, "Minute");
+            if (hours < 24) return pluralize(hours, "Hour");
+            return pluralize(days, "Day");
+        }
+
+        // fetch and display last commit time
+        fetch("https://api.github.com/repos/movie-sites/movie-sites.github.io/commits/864417575aecb45de1e39a9786f66d22d31b5e80")
+        .then(response => response.json())
+        .then(commit => {
+            const updateSpan = document.getElementById('updated');
+            if (commit && commit.commit && commit.commit.author && commit.commit.author.date) {
+                const commitDate = new Date(commit.commit.author.date);
+                updateSpan.innerHTML = getRelativeTime(commitDate);
+            } else {
+                updateSpan.innerHTML = 'Unknown';
+            }
+            updateSpan.parentElement.style.opacity = 1;
+        })
+        .catch(error => console.error('Error fetching commit:', error));
     </script>    
 </body>
 </html>
