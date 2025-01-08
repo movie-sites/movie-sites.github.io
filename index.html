@@ -336,7 +336,6 @@
                     const img = document.createElement("img");
                     img.src = loadingUrl;
                     img.alt = `${site.name} Icon`;
-                    img.loading = 'lazy';
                     img.onload = () => {
                         if (new URL(img.src).pathname === loadingUrl) img.src = iconUrl;
                     };
