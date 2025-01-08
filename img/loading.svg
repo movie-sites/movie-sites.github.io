@@ -1,0 +1,22 @@
+<svg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' height='64' role='img' viewBox='0 0 512 512' width='64' style='transform: scale(0.9);display:inline-block;fill:#4255d355;user-select:none;vertical-align:middle; position: relative;'>
+  <defs>
+    <linearGradient id="shine-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="rgba(66, 85, 211, 0)" />
+      <stop offset="50%" stop-color="rgba(66, 85, 211, 0.5)" />
+      <stop offset="100%" stop-color="rgba(66, 85, 211, 0)" />
+    </linearGradient>
+    <clipPath id="clip-shine">
+      <path d="M448 80c8.8 0 16 7.2 16 16l0 319.8-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3L48 96c0-8.8 7.2-16 16-16l384 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/>
+    </clipPath>
+  </defs>
+  <path d="M448 80c8.8 0 16 7.2 16 16l0 319.8-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3L48 96c0-8.8 7.2-16 16-16l384 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z" fill="#4255d355" clip-path="url(#clip-shine)">
+  </path>
+  <rect width="100%" height="100%" fill="url(#shine-gradient)" clip-path="url(#clip-shine)">
+    <animate attributeName="x" from="-550" to="550" dur="1.5s" repeatCount="indefinite" />
+  </rect>
+  <style>
+    path {
+      fill: #4255d355;
+    }
+  </style>
+</svg>
