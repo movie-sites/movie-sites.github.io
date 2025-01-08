@@ -18,7 +18,7 @@
             --card-background: #161641;
             --card-light: #212c59;
             --card-hover: #2f347b;
-            --card-highlight: #353a82;
+            --card-highlight: #292e6f;
             --card-highlight-hover: #434ab1;
             --radius: 8px;
         }
@@ -109,7 +109,7 @@
             color: var(--text-secondary);
             text-decoration: none;
             position: relative;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.3s, color 0.3s, border 0.3s;
         }
 
         .site.highlight a {
@@ -125,6 +125,7 @@
         .site a:hover {
             background: var(--card-hover);
             color: var(--text-primary);
+            border: var(--border-highlight);
         }
         .site.highlight a:hover {
             background: var(--card-highlight-hover);
