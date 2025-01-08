@@ -217,7 +217,7 @@
     </div>
     <script>
         const categoriesMap = {
-            "All": [],
+            // "All": [],
             "Movies & Series": [
                 { name: "Nkiri.cc", url: "https://nkiri.cc/", highlight: true },
                 { name: "NetMovies.to", url: "https://web.netmovies.to/home/", highlight: true },
@@ -294,8 +294,8 @@
         };
     
         // get all sites and remove duplicates
-        const allSites = [...new Map(Object.values(categoriesMap).flat().map(site => [site.url, site])).values()];
-        categoriesMap["All"] = allSites;
+        // const allSites = [...new Map(Object.values(categoriesMap).flat().map(site => [site.url, site])).values()];
+        // categoriesMap["All"] = allSites;
         
         // populate categories dynamically
         const categoriesContainer = document.getElementById("categories");
@@ -326,18 +326,36 @@
                     if (site.highlight) {
                         siteElement.classList.add("highlight");
                     }
+                    const loadingUrl = "/img/loading.svg";
+                    const failedUrl = "/img/failed.svg";
+                    const iconUrl = `https://icon.horse/icon/${new URL(site.url).hostname}`;
+                    
+                    const img = document.createElement("img");
+                    img.src = loadingUrl;
+                    img.alt = `${site.name} Icon`;
+                    img.loading = 'lazy';
+                    img.onload = () => {
+                        if (new URL(img.src).pathname === loadingUrl) img.src = iconUrl;
+                    };
+                    img.onerror = () => {
+                        if (img.src === iconUrl) img.src = failedUrl;
+                    };
 
                     siteElement.innerHTML = `
                         <a href="${site.url}" target="_blank">
-                            <img src="https://icon.horse/icon/${new URL(site.url).hostname}" alt="${site.name} favicon">
                             <span>${site.name}</span>
                         </a>
                     `;
+
+                    const link = siteElement.querySelector("a");
+                    link.insertBefore(img, link.firstChild);
                     sitesContainer.appendChild(siteElement);
                 });
                 sitesContainer.classList.add("visible");
             }, 200);
         }
+
+
 
         // check for hash and filter sites accordingly
         const categoryFromHash = decodeURIComponent(window.location.hash.substring(1));
@@ -351,7 +369,7 @@
         } else {
             // default to "All" if no hash is present
             document.querySelector(".category").classList.add("active");
-            filterSites("All");
+            filterSites("Movies & Series");
         }
     </script>    
 </body>
